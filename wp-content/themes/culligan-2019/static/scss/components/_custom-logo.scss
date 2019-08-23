@@ -1,0 +1,8 @@
+.custom-logo {
+    height: 46px;
+    width: auto;
+
+    @media (min-width: $breakpoint-small) {
+        height: 70px;
+    }
+}

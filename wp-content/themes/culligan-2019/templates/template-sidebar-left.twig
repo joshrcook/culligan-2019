@@ -1,0 +1,6 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% include 'partial/hero-internal.twig' %}
+    {% include 'partial/page-content.twig' with { 'has_sidebar': true } %}
+{% endblock %}

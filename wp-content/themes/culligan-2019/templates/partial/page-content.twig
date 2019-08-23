@@ -1,0 +1,22 @@
+<div class="uk-section uk-section-default uk-padding-remove-bottom">
+    <div class="uk-container">
+        {% include 'partial/breadcrumbs.twig' %}
+    </div>
+</div>
+
+<div class="uk-section uk-section-default uk-padding-remove-top uk-margin-medium-top">
+    <div class="uk-container">
+        <div uk-grid="">
+            {% if has_sidebar %}
+                <div class="uk-width-1-4 uk-margin-medium-top">
+                    {% include "partial/sidebar-internal.twig" %}
+                </div>
+            {% endif %}
+            <div class="{% if has_sidebar %}uk-width-3-4{% else %}uk-width-1-1{% endif %}">
+                <h1>{{ post.title }}</h1>
+                <hr class="uk-divider-small">
+                {{ post.content }}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content" hidden>{{ _e( 'Skip to content') }}</a>
+		<header class="header" >
+			{% block header %}
+				<div class="uk-container uk-container-expand">
+					<nav class="uk-navbar-container" uk-navbar>
+						<div class="uk-navbar-left">
+							<div class="uk-navbar-item">
+								{{ function('the_custom_logo') }}
+							</div>
+						</div>
+						<div class="uk-navbar-right">
+							{% include 'menu.twig' with { menu: menus.header, menu_class: 'uk-navbar-nav' } %}
+							{% if options and options.phone_number %}
+							<div class="uk-navbar-item">
+									<a href="tel:{{ options.phone_number }}" class="uk-text-large">
+										<i class="fa fa-phone"></i>
+										{{ options.phone_number }}
+									</a>
+							</div>
+							{% endif %}
+							<div class="uk-navbar-item">
+								<a href="#" class="uk-button uk-button-primary">Book an Appointment</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			{% endblock %}
+		</header>
+
+		<section id="content" role="main" class="content-wrapper">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

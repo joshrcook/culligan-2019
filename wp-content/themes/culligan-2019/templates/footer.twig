@@ -1,0 +1,53 @@
+<div class="uk-section section section--water">
+    <div class="uk-container">
+        <div uk-grid="" class="uk-flex-middle">
+            <div class="uk-width-1-3">
+                <img src="http://placehold.it/960x540" class="uk-box-shadow-xlarge  uk-border-rounded">
+            </div>
+            <div class="uk-width-2-3">
+                <div class="uk-text-right">
+                    <p class="uk-lead">call us 24/7 for emergencies</p>
+                    <hr class="uk-divider-small">
+                    <h2 class="uk-heading-medium">It’s Time to Protect Your Family</h2>
+                    [form]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if options and options.phone_number %}
+<div class="uk-section  uk-background-primary">
+    <div class="uk-container  uk-light  uk-text-center">
+        <h2 class="uk-heading-medium">Get the truth about your water</h2>
+        <a href="tel:{{ options.phone_number }}" class="uk-button uk-button-primary"><i class="fa fa-phone"></i> {{ options.phone_number }}</a>
+    </div>
+</div>
+{% endif %}
+
+<div class="uk-section uk-background-secondary uk-light">
+    <div class="uk-container">
+        <div uk-grid="" class="uk-child-width-1-2">
+            <div>
+                {% if options and options.footer_text %}
+                    {{ options.footer_text }}
+                {% endif %}
+                {% if options and options.phone_number %}
+                    <h4><a href="tel:{{ options.phone_number }}">{{ options.phone_number }}</a></h4>
+                {% endif %}
+            </div>
+            <div class="uk-text-right">
+                {% if options and options.social_channels %}
+                    {% for channel in options.social_channels %}
+                        <a href="{{ channel.link }}" class="uk-padding uk-padding-small">
+                            <i class="fa fa-2x {{ channel.fa_class }}"></i>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+                {% if options and options.footer_text_right %}
+                    {{ options.footer_text_right }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

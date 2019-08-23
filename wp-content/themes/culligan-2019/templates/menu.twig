@@ -1,0 +1,9 @@
+{% if menu %}
+	<ul{% if menu_class %} class="{{ menu_class }}"{% endif %}>
+	{% for item in menu.items %}
+		<li class="{% if item.current %}uk-active {% endif %}{{ item.classes | join(' ') }}">
+			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
